@@ -21,9 +21,9 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
       </head>
-      <body className={cn("font-body antialiased", "min-h-screen bg-secondary")}>
+      <body className={cn("font-body antialiased", "min-h-screen bg-background text-foreground")}>
         <div className="relative flex min-h-screen flex-col">
-          <div className="flex-1 pb-16 md:pb-0">{children}</div>
+          <main className="flex-1 pb-16 md:pb-0">{children}</main>
           <BottomNav />
         </div>
         <Toaster />
