@@ -1,13 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { Bookmark, Search } from "lucide-react";
-import { Icons } from "@/components/icons";
-import Link from "next/link";
-
-const categories = ["케어", "수면과학", "스타일", "계절", "소재", "건강"];
 
 const articles = [
   { title: "올바른 이불 세탁 및 관리법", category: "케어", image: "https://placehold.co/400x300.png", hint: "laundry care", excerpt: "이불을 오래도록 새것처럼 유지하는 세탁 노하우를 알려드립니다." },
@@ -16,55 +11,20 @@ const articles = [
   { title: "신혼부부를 위한 침구 세트 추천", category: "스타일", image: "https://placehold.co/400x300.png", hint: "wedding bedding", excerpt: "새로운 시작을 더욱 특별하게 만들어 줄 침구 스타일링." },
   { title: "알레르기 비염, 이불부터 바꿔보세요", category: "건강", image: "https://placehold.co/400x300.png", hint: "allergy relief", excerpt: "알레르기 방지 기능성 침구로 건강한 잠자리를 만드세요." },
   { title: "수면의 질을 높이는 과학적인 방법", category: "수면과학", image: "https://placehold.co/400x300.png", hint: "sleep science", excerpt: "단순히 오래 자는 것보다 중요한 '잘' 자는 법을 알아봅니다." },
-  { title: "호텔 침구처럼 바삭하게 관리하기", category: "케어", image: "https://placehold.co/400x300.png", hint: "hotel bedding", excerpt: "매일 호텔에 온 듯한 기분을 느낄 수 있는 침구 관리 비법." },
-  { title: "아이방 침구, 어떻게 고를까?", category: "스타일", image: "https://placehold.co/400x300.png", hint: "kids bedding", excerpt: "성장기 아이들을 위한 안전하고 포근한 침구 선택 가이드." },
 ];
 
 
 export default function SleepReadPage() {
   return (
     <div className="bg-background">
-      <header className="bg-background shadow-sm">
-        <div className="container mx-auto px-4 h-16 flex items-center">
-            <Link href="/" className="flex items-center gap-2" aria-label="매일이불 홈으로">
-              <Icons.logo className="h-6 w-6 text-primary" />
-              <span className="font-bold text-lg">매일이불</span>
-            </Link>
+      <header className="bg-background shadow-sm sticky top-0 z-10">
+        <div className="container mx-auto px-4 h-16 flex items-center justify-between">
+            <h1 className="font-bold text-lg">침구 지식</h1>
+            <Search className="h-6 w-6 text-muted-foreground" />
         </div>
       </header>
-
-      <section className="bg-secondary py-12 md:py-20">
-        <div className="container text-center">
-          <h1 className="text-4xl md:text-5xl font-bold font-headline">침구 지식 센터</h1>
-          <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
-            더 나은 수면을 위한 모든 것. 매일이불의 전문가들이 제공하는 다양한 침구 지식과 팁을 만나보세요.
-          </p>
-        </div>
-      </section>
-
-      <div className="container py-12">
-        <div className="relative w-full h-80 rounded-lg overflow-hidden mb-12">
-          <Image src="https://placehold.co/1200x400.png" alt="Featured article" layout="fill" objectFit="cover" data-ai-hint="reading sleep" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
-          <div className="absolute bottom-0 p-8 text-white">
-            <h2 className="text-3xl font-bold">에디터 추천: 최고의 수면 환경 만들기</h2>
-            <p className="mt-2 max-w-lg">온도, 습도, 빛... 완벽한 수면을 위한 환경적 요소를 알아보고 오늘 밤부터 적용해보세요.</p>
-            <Button className="mt-4 bg-primary text-primary-foreground hover:bg-primary/90">자세히 보기</Button>
-          </div>
-        </div>
-        
-        <Carousel opts={{ align: "start", loop: true }} className="w-full mb-8">
-          <CarouselContent>
-            {categories.map((category, index) => (
-              <CarouselItem key={index} className="basis-1/3 md:basis-1/4 lg:basis-1/6">
-                <Button variant="outline" className="w-full">{category}</Button>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-          <CarouselPrevious className="hidden md:flex" />
-          <CarouselNext className="hidden md:flex" />
-        </Carousel>
-        
+      
+      <div className="container py-8">
         <div className="flex gap-2 mb-8">
           <Input placeholder="궁금한 점을 검색해보세요..." className="flex-grow" />
           <Button aria-label="검색">
