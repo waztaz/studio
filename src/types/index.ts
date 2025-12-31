@@ -28,5 +28,3 @@ export interface DifficultyLevel {
   role?: Role;
   subLevels?: DifficultyLevel[];
 }
-
-    
