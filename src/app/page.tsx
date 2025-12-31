@@ -12,6 +12,13 @@ export default function Home() {
   const { role, isLoading, isGuest, isLoggedIn } = useAuth();
   const router = useRouter();
   const [shouldRender, setShouldRender] = useState(false);
+  // We need a function to trigger re-fetch in BlogPostList.
+  // A simple way is to use a key on BlogPostList that changes.
+  const [postListKey, setPostListKey] = useState(Date.now());
+
+  const handlePostAdded = () => {
+    setPostListKey(Date.now());
+  };
 
   useEffect(() => {
     if (!isLoading) {
@@ -33,13 +40,6 @@ export default function Home() {
 
   const showBlogPostForm = role === "editor" || role === "fullAdmin";
   
-  // We need a function to trigger re-fetch in BlogPostList.
-  // A simple way is to use a key on BlogPostList that changes.
-  const [postListKey, setPostListKey] = useState(Date.now());
-  const handlePostAdded = () => {
-    setPostListKey(Date.now());
-  };
-
   return (
     <div>
       {showBlogPostForm && <BlogPostForm onPostAdded={handlePostAdded} />}
