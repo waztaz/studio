@@ -104,7 +104,7 @@ export default function DuvetAdvisorForm() {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="알러지 정보를 선택하세요" />
-                        </SelectTrigger>
+                        </Trigger>
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="yes">알러지 있음 (먼지, 진드기 등)</SelectItem>
@@ -125,7 +125,7 @@ export default function DuvetAdvisorForm() {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="선호하는 무게감을 선택하세요" />
-                        </SelectTrigger>
+                        </Trigger>
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="light">가벼운 이불</SelectItem>
@@ -147,7 +147,7 @@ export default function DuvetAdvisorForm() {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="선호하는 스타일을 선택하세요" />
-                        </SelectTrigger>
+                        </Trigger>
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="modern">모던</SelectItem>
@@ -170,7 +170,7 @@ export default function DuvetAdvisorForm() {
                       <FormControl>
                         <SelectTrigger>
                           <SelectValue placeholder="예산 범위를 선택하세요" />
-                        </SelectTrigger>
+                        </Trigger>
                       </FormControl>
                       <SelectContent>
                         <SelectItem value="under_100">10만원 미만</SelectItem>

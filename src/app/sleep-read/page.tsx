@@ -22,8 +22,7 @@ export default function SleepReadPage() {
             <h1 className="font-bold text-lg">침구 지식</h1>
             <Search className="h-6 w-6 text-muted-foreground" />
         </div>
-      </header>
-      
+      </header>      
       <div className="container py-8">
         <div className="flex gap-2 mb-8">
           <Input placeholder="궁금한 점을 검색해보세요..." className="flex-grow" />
