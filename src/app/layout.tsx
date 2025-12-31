@@ -1,12 +1,16 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import { Toaster } from "@/components/ui/toaster"
-import BottomNav from '@/components/layout/bottom-nav';
-import { cn } from '@/lib/utils';
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Toaster } from "@/components/ui/toaster";
+import { FirebaseProvider } from "@/components/FirebaseProvider";
+import { AuthProvider } from "@/components/AuthContext";
+import Header from "@/components/Header";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: '매일이불 (Everyday Duvet)',
-  description: '당신에게 꼭 맞는 이불을 찾아보세요.',
+  title: "waztaz",
+  description: "A modern content platform.",
 };
 
 export default function RootLayout({
@@ -15,19 +19,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&display=swap" rel="stylesheet" />
-      </head>
-      <body className={cn("font-body antialiased", "min-h-screen bg-background text-foreground")}>
-        <div className="relative flex min-h-screen flex-col">
-          <main className="flex-1 pb-16 md:pb-0">{children}</main>
-          <BottomNav />
-        </div>
-        <Toaster />
+    <html lang="en">
+      <body className={inter.className}>
+        <FirebaseProvider>
+          <AuthProvider>
+            <Header />
+            <main className="container mx-auto px-4 py-8">{children}</main>
+            <Toaster />
+          </AuthProvider>
+        </FirebaseProvider>
       </body>
     </html>
-  );
-}
